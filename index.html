@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="referrer" content="no-referrer">
+  <title>Catálogo de lentes</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="locked">
+  <div class="gate" id="gate">
+    <form id="gate-form">
+      <h1>Catálogo de lentes</h1>
+      <label for="pw">Contraseña</label>
+      <input id="pw" type="password" autocomplete="current-password" autofocus required>
+      <p class="error" id="gate-error" role="alert"></p>
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+  <header class="bar">
+    <h1>Catálogo de lentes</h1>
+    <div class="controls">
+      <div class="tabs" role="group" aria-label="Tipo">
+        <button type="button" data-tipo="todos" aria-pressed="true">Todos</button>
+        <button type="button" data-tipo="solar" aria-pressed="false">Solar</button>
+        <button type="button" data-tipo="oftalmico" aria-pressed="false">Oftálmico</button>
+      </div>
+      <label class="sort">Ordenar
+        <select id="orden">
+          <option value="asc">Precio: menor a mayor</option>
+          <option value="desc">Precio: mayor a menor</option>
+        </select>
+      </label>
+    </div>
+    <details class="brands" id="marcas">
+      <summary>Marcas <span id="marcas-sel"></span></summary>
+      <div class="brand-list" id="marcas-lista"></div>
+      <button type="button" id="limpiar" class="link">Quitar filtros de marca</button>
+    </details>
+    <p class="count" id="conteo" aria-live="polite"></p>
+  </header>
+  <main>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="vacio" hidden>No hay lentes con esos filtros.</p>
+  </main>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
